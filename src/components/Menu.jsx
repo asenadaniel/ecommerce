@@ -33,10 +33,10 @@ function Menu() {
 
       {open && <div className=' bg-slate-300 text-white absolute left-0 top-24 w-full h-[calc(100vh-6rem)] flex items-center justify-center flex-col gap-8 z-20'>
         <ul className='flex items-center gap-8  flex-col'>
-          <Link to='/'>
+          <Link to='/' onClick={() => setOpen(false)}>
             <li className=' text-4xl text-black font-bold hover:text-orange-900 hover:underline underline-offset-2  decoration-[1px] cursor-pointer duration-300'>Home</li>
           </Link>
-          <Link to='/'>
+          <Link to='/' onClick={() => setOpen(false)}>
             <li className='text-4xl text-black font-bold hover:text-orange-900 hover:underline underline-offset-2  decoration-[1px] cursor-pointer duration-300'>shop</li>
           </Link>
         </ul>
