@@ -7,10 +7,19 @@ function Menu() {
 
   const [open, setOpen] = useState(false)
   const productData = useSelector((state) => state.cart.productData)
+  const userInfo = useSelector((state) => state.cart.userInfo)
+  console.log(userInfo)
 
 
   return (
     <div className='flex items-center gap-3'>
+      <Link to='/login'>
+        {
+          userInfo ? <img className='w-8 h-8 rounded-full' src={
+            userInfo ? userInfo.image : 'https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+          } alt="userlogo" /> : <li className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2  decoration-[1px] cursor-pointer duration-300'>Login</li>
+        }
+      </Link>
       <Link to='/cart'>
         <div className='relative '>
           <img src={cartImg} alt="cart" className='w-6' />

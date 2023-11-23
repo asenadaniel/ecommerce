@@ -3,12 +3,15 @@ import CartItem from '../components/CartItem'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ArrowBack } from '@mui/icons-material'
+import { ToastContainer, toast } from 'react-toastify'
 
 function Cart() {
 
   const productData = useSelector((state) => state.cart.productData)
+  const userInfo = useSelector((state) => state.cart.userInfo)
 
   const [total, setTotal] = useState('')
+  const [pay, setPay] = useState(false)
 
   useEffect(() => {
     let price = 0;
@@ -18,6 +21,14 @@ function Cart() {
     })
     setTotal(price.toFixed(2))
   }, [productData])
+
+  const check = () => {
+    if (userInfo) {
+      setPay(true)
+    } else {
+      toast.error('Please Sign In to Place Order')
+    }
+  }
 
   return (
     <div>
@@ -39,7 +50,7 @@ function Cart() {
             </p>
           </div>
           <p className=' font-titleFont font-semibold flex justify-between mt-6'>Total <span className='text-xl font-bold'>₦{total}</span></p>
-          <button className=' text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-900 duration-200'>Place order</button>
+          <button onClick={check} className=' text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-900 duration-200'>Place order</button>
         </div>
       </div> :
         <div className='flex justify-center items-center flex-col py-9 '>
@@ -51,6 +62,18 @@ function Cart() {
           </Link>
         </div>
       }
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   )
 }
