@@ -11,6 +11,7 @@ import {
   ScrollRestoration
 } from 'react-router-dom'
 import Login from "./pages/Login";
+import ErrorPage from "./components/Error";
 
 
 const Layout = () => {
@@ -33,14 +34,17 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         loader: productData,
+        errorElement: <ErrorPage />
       },
       {
         path: '/product/:id',
-        element: <Product />
+        element: <Product />,
+        errorElement: <ErrorPage />
       },
       {
         path: '/cart',
-        element: <Cart />
+        element: <Cart />,
+        errorElement: <ErrorPage />
       },
       {
         path: '/login',
