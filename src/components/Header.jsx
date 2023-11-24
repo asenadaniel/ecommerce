@@ -2,12 +2,28 @@ import React from 'react'
 import { cartImg, logoDark } from '../assets'
 import Menu from './Menu'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAuth, signOut } from "firebase/auth";
+import { removeUser } from '../redux/cartReducer'
+import { ToastContainer, toast } from 'react-toastify'
 
 function Header() {
   const productData = useSelector((state) => state.cart.productData)
   const userInfo = useSelector((state) => state.cart.userInfo)
-  console.log(userInfo)
+
+
+  const auth = getAuth()
+  const dispatch = useDispatch()
+
+  const googleSignOut = () => {
+    signOut(auth).then(() => {
+      toast.success('Logged Out Succesfully')
+      dispatch(removeUser())
+    })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
 
   return (
@@ -26,6 +42,9 @@ function Header() {
             <Link to='/'>
               <li className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2  decoration-[1px] cursor-pointer duration-300'>shop</li>
             </Link>
+            {userInfo && <Link to='/'>
+              <li onClick={googleSignOut} className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2  decoration-[1px] cursor-pointer duration-300'>Logout</li>
+            </Link>}
           </ul>
           <Link to='/cart'>
             <div className='relative '>
@@ -48,6 +67,18 @@ function Header() {
           <Menu />
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   )
 }

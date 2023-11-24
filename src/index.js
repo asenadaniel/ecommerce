@@ -7,17 +7,15 @@ import './index.css';
 import App from './App';
 import 'react-toastify/dist/ReactToastify.css';
 import { app } from './firebase.config';
-import Auth0ProviderWithHistory from './auth0Provider';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <Auth0ProviderWithHistory>
   <Provider store={store} app={app}>
     <PersistGate loading={'loading'} persistor={persistor}>
       <App />
     </PersistGate>
   </Provider>
-  // </Auth0ProviderWithHistory>
 );
 

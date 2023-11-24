@@ -7,9 +7,11 @@ import { addUser, removeUser } from '../redux/cartReducer';
 import { useNavigate } from 'react-router-dom';
 
 
+
 function Login() {
   const userInfo = useSelector((state) => state.cart.userInfo)
-  console.log(userInfo)
+
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 

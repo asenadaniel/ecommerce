@@ -1,18 +1,36 @@
 import React, { useState } from 'react'
 import { cartImg } from '../assets'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { getAuth, signOut } from "firebase/auth";
+import { removeUser } from '../redux/cartReducer'
+import { ToastContainer, toast } from 'react-toastify'
 
 function Menu() {
 
   const [open, setOpen] = useState(false)
   const productData = useSelector((state) => state.cart.productData)
   const userInfo = useSelector((state) => state.cart.userInfo)
-  console.log(userInfo)
+  const auth = getAuth()
+  const dispatch = useDispatch()
+
+  const googleSignOut = () => {
+    signOut(auth).then(() => {
+      toast.success('Logged Out Succesfully')
+      dispatch(removeUser())
+    })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
 
 
   return (
     <div className='flex items-center gap-3'>
+      {userInfo && <Link to='/'>
+        <li onClick={googleSignOut} className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2  decoration-[1px] cursor-pointer duration-300'>Logout</li>
+      </Link>}
       <Link to='/login'>
         {
           userInfo ? <img className='w-8 h-8 rounded-full' src={
