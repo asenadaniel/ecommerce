@@ -50,11 +50,11 @@ function Login() {
   return (
     <div className='w-full flex flex-col items-center justify-center gap-10 py-20'>
       <div className='w-full flex items-center justify-center gap-10 flex-col md:flex-row'>
-        {!userInfo && <div onClick={googleLogin} className=' text-base w-60 h-12 tracking-wide border-[1px] border-gray-500 rounded-md flex items-center justify-center gap-2 cursor-pointer'>
+        <div onClick={googleLogin} className=' text-base w-60 h-12 tracking-wide border-[1px] border-gray-500 rounded-md flex items-center justify-center gap-2 cursor-pointer'>
           <img className='w-8' src={googleLogo} alt="github" />
           <span >Sign in with Google</span>
-        </div>}
-        <button onClick={googleSignOut} className='bg-black text-white text-base py-3 px-8 tracking-wide rounded-md hover:bg-gray-900 duration-200'>Sign Out</button>
+        </div>
+        {userInfo && <button onClick={googleSignOut} className='bg-black text-white text-base py-3 px-8 tracking-wide rounded-md hover:bg-gray-900 duration-200'>Sign Out</button>}
       </div>
       <ToastContainer
         position="top-right"
