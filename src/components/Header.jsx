@@ -9,6 +9,7 @@ function Header() {
   const userInfo = useSelector((state) => state.cart.userInfo)
   console.log(userInfo)
 
+
   return (
     <div className='w-full h-[100px] bg-white border-b-[1px] border-b-gray-800 md:h-24 lg:px-20 xl:px-40 font-titleFont px-5 sticky top-0 z-20'>
       <div className=' max-w-screen-xl h-full mx-auto flex items-center justify-between'>

@@ -54,6 +54,8 @@ const router = createBrowserRouter([
   }
 ])
 
+console.log(process.env.REACT_APP_AUTH0_DOMAIN)
+
 function App() {
   return (
     <div className=" font-bodyFont">
