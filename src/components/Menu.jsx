@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getAuth, signOut } from "firebase/auth";
 import { removeUser } from '../redux/cartReducer'
-import { ToastContainer, toast } from 'react-toastify'
+
 
 function Menu() {
 
@@ -16,7 +16,7 @@ function Menu() {
 
   const googleSignOut = () => {
     signOut(auth).then(() => {
-      toast.success('Logged Out Succesfully')
+
       dispatch(removeUser())
     })
       .catch((error) => {
