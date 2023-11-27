@@ -1,26 +1,25 @@
-import { React, lazy, Suspense } from "react";
 import { productData } from "./api/Api";
-import { createBrowserRouter, Outlet, RouterProvider, ScrollRestoration } from 'react-router-dom'
-const Home = lazy(() => import('./pages/Home'))
-const Footer = lazy(() => import('./components/Footer'))
-const Header = lazy(() => import("./components/Header"))
-const Product = lazy(() => import("./components/Product"))
-const Cart = lazy(() => import("./pages/Cart"))
-const Login = lazy(() => import("./pages/Login"))
-const ErrorPage = lazy(() => import("./components/Error"))
-
-
-
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Product from "./components/Product";
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  ScrollRestoration
+} from 'react-router-dom'
+import Login from "./pages/Login";
+import ErrorPage from "./components/Error";
 
 
 const Layout = () => {
   return (
     <div>
-      <Suspense fallback={<p>Loading</p>}>
-        <Header />
-        <ScrollRestoration />
-        <Outlet />
-      </Suspense>
+      <Header />
+      <ScrollRestoration />
+      <Outlet />
       <Footer />
     </div>
   )
