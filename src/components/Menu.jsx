@@ -68,7 +68,7 @@ function Menu() {
         }
       </Link>
       <Link to='/cart'>
-        <div className='relative '>
+        <div className='relative dark:bg-white '      >
           <img src={cartImg} alt="cart" className='w-6' />
           <span className='absolute w-6 top-2 left-0 text-sm flex items-center justify-center font-semibold'>{productData.length}</span>
         </div>

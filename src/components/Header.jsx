@@ -57,7 +57,7 @@ function Header() {
 
 
   return (
-    <div className='w-full h-[100px] dark:text-gray-100 duration-300 dark:bg-slate-900 bg-white border-b-[1px] border-b-gray-800 md:h-24 lg:px-20 xl:px-40 font-titleFont px-5 sticky top-0 z-20'>
+    <div className='w-full h-[100px] duration-300 dark:bg-black bg-white border-b-[1px] border-b-gray-800 md:h-24 lg:px-20 xl:px-40 font-titleFont px-5 sticky top-0 z-20'>
       <div className=' max-w-screen-xl h-full mx-auto flex items-center justify-between'>
         <Link to='/'>
           <div>
@@ -65,13 +65,13 @@ function Header() {
           </div>
         </Link>
         <div className='hidden md:flex items-center gap-8 '>
-          <div className=' bg-black text-white static top-[37px] left-[500px] duration-100 flex justify-center items-center  rounded dark:bg-slate-800'>
+          <div className=' bg-black text-white static top-[37px] left-[500px] duration-100 flex justify-center items-center  rounded dark:bg-gray-700'>
             {
               options?.map(opt => (
                 <button
                   key={opt.text}
                   onClick={() => setTheme(opt.text)}
-                  className={`w-9 h-8 justify-center items-center flex  leading-9 text-xl rounded-full m-l  ${theme === opt.text && 'text-sky-600'}`}
+                  className={`w-9 h-8 justify-center items-center flex  leading-9 text-xl rounded-full m-l  ${theme === opt.text && 'text-gray-400'}`}
                 >
                   <ion-icon name={opt.icons}></ion-icon>
                 </button>
@@ -92,7 +92,7 @@ function Header() {
           <Link to='/cart'>
             <div className='relative '>
               <img src={cartImg} alt="cart" className='w-6' />
-              <span className='absolute w-6 top-2 left-0 text-sm flex items-center justify-center font-semibold '>{productData.length}</span>
+              <span className='absolute dark:bg-white w-6 top-2 left-0 text-sm flex items-center justify-center font-semibold '>{productData.length}</span>
             </div>
           </Link>
           <Link to='/login'>
