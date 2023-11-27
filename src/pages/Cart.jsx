@@ -50,7 +50,9 @@ function Cart() {
             </p>
           </div>
           <p className=' font-titleFont font-semibold flex justify-between mt-6'>Total <span className='text-xl font-bold'>₦{total}</span></p>
-          <button onClick={check} className=' text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-900 duration-200'>Place order</button>
+          <Link to='/'>
+            <button onClick={check} className=' text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-900 duration-200'>Place order</button>
+          </Link>
         </div>
       </div> :
         <div className='flex justify-center items-center flex-col py-9 '>
