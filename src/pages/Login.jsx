@@ -48,9 +48,9 @@ function Login() {
   }
 
   return (
-    <div className='w-full flex flex-col items-center justify-center gap-10 py-20'>
+    <div className='w-full flex  dark:bg-slate-700  flex-col items-center justify-center gap-10 py-20'>
       <div className='w-full flex items-center justify-center gap-10 flex-col md:flex-row'>
-        <div onClick={googleLogin} className=' text-base w-60 h-12 tracking-wide border-[1px] border-gray-500 rounded-md flex items-center justify-center gap-2 cursor-pointer'>
+        <div onClick={googleLogin} className=' text-base w-60 h-12 tracking-wide border-[1px] border-gray-500 dark:border-slate-900  dark:text-gray-100 rounded-md flex items-center justify-center gap-2 cursor-pointer'>
           <img className='w-8' src={googleLogo} alt="github" />
           <span >Sign in with Google</span>
         </div>

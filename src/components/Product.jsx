@@ -15,12 +15,12 @@ function Product() {
     setDetails(location.state.item)
   }, [])
   return (
-    <div>
-      <div className=' flex-col justify-center md:flex-row items-center md:max-w-screen-xl mx-auto my-10 flex gap-10'>
+    <div className='   '>
+      <div className='     flex-col justify-center md:flex-row items-center md:max-w-screen-xl mx-auto my-10 flex gap-10'>
         <div className=' md:w-[40%] relative'>
           <img src={details.image} alt="image" className='w-full h-[550px]  object-cover' />
           <div className='text-center'>
-            {details.isNew && <p className='bg-black text-white font-semibold font-titleFont px-8 py-1'>Sale</p>}
+            {details.isNew && <p className='bg-black text-white font-semibold font-titleFont px-8 py-1  dark:bg-slate-900'>Sale</p>}
           </div>
         </div>
         <div className=' w-[60%] flex flex-col justify-center gap-12'>
@@ -64,7 +64,7 @@ function Product() {
               )
               & toast.success(`${details.title} added to cart`)
             }
-              className='bg-black text-white py-3 px-6 active:bg-gray-800'>add to cart</button>
+              className='bg-black  dark:text-gray-100 text-white py-3 px-6 active:bg-gray-800  dark:bg-slate-900'>add to cart</button>
           </div>
           <p className='text-base text-gray-500'> Category:  <span className='font-medium capitalize'>{details.category}</span></p>
         </div>
@@ -80,6 +80,7 @@ function Product() {
         draggable
         pauseOnHover
         theme="dark"
+
       />
     </div>
   )

@@ -27,7 +27,7 @@ function ProductsCard({ product }) {
         <img className='w-full h-full object-cover group-hover:scale-110 duration-500' src={product.image} alt="productImg" loading='lazy' />
       </div>
 
-      <div className='w-full border-[1px] px-2 py-4'>
+      <div className='w-full border-[1px] dark:border-none px-2 py-4'>
         <div className='flex flex-col gap-2 md:justify-between items-center'>
           <div>
             <h2 className=' font-titleFont text-base font-bold'>{product.title.substring(0, 15)}
@@ -49,7 +49,6 @@ function ProductsCard({ product }) {
                   description: product.description
                 })
               )
-              & toast.success(`${product.title} added to cart`)
             }
               className=' absolute top-4 left-5 pt-2  font-semibold cursor-pointer'>Add to cart</p>
           </div>
@@ -58,7 +57,7 @@ function ProductsCard({ product }) {
           <p>{product.category}</p>
         </div>
         <div className='absolute bottom-[143px] right-0'>
-          {product.isNew && <p className='bg-black text-white font-semibold font-titleFont px-6 py-1'>Sale</p>}
+          {product.isNew && <p className='bg-black text-white font-semibold font-titleFont px-6 py-1  dark:bg-slate-900'>Sale</p>}
         </div>
       </div>
       <ToastContainer

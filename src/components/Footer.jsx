@@ -4,7 +4,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='bg-black text-gray-500 py-20 font-titleFont px-10 '>
+    <div className='bg-black dark:bg-slate-900  dark:text-gray-100 text-gray-500 py-20 font-titleFont px-10 '>
       <div className='flex flex-col gap-6 items-center justify-center max-w-screen-xl mx-auto md:grid grid-cols-4 '>
         <div className='flex flex-col gap-7'>
           <img src="" alt="" />
