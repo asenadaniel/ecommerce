@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, lazy, useEffect, useState } from 'react'
 import Banner from '../components/Banner'
-import Products from '../components/Products'
-import { useLoaderData } from 'react-router-dom'
 
+import { useLoaderData } from 'react-router-dom'
+const Products = lazy(() => import('../components/Products'))
 
 function Home() {
   const [products, setProducts] = useState([])
@@ -14,7 +14,9 @@ function Home() {
   return (
     <div>
       <Banner />
-      <Products products={products} />
+      <Suspense fallback={<div>Loading....</div>}>
+        <Products products={products} />
+      </Suspense>
 
     </div>
   )
