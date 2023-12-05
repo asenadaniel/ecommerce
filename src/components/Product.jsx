@@ -15,7 +15,7 @@ function Product() {
     setDetails(location.state.item)
   }, [])
   return (
-    <div className='   '>
+    <div className=''>
       <div className='     flex-col justify-center md:flex-row items-center md:max-w-screen-xl mx-auto my-10 flex gap-10'>
         <div className=' md:w-[40%] relative'>
           <img src={details.image} alt="image" className='w-full h-[550px]  object-cover' />
