@@ -23,11 +23,11 @@ function ProductsCard({ product }) {
 
   return (
     <div className=' group relative'>
-      <div onClick={handleDetails} className='w-full h-96 cursor-pointer overflow-hidden'>
-        <img className='w-full h-full object-cover group-hover:scale-110 duration-500' src={product.image} alt="productImg" loading='lazy' />
+      <div onClick={handleDetails} className='w-full h-[280px] cursor-pointer overflow-hidden'>
+        <img className='md:w-full  object-cover group-hover:scale-110 duration-500 p-3' src={product.image} alt="productImg" loading='lazy' />
       </div>
 
-      <div className='w-full border-[1px] dark:border-none px-2 py-4'>
+      <div className='w-full  dark:border-none px-2 py-4'>
         <div className='flex flex-col gap-2 md:justify-between items-center'>
           <div>
             <h2 className=' font-titleFont text-base font-bold'>{product.title.substring(0, 15)}
